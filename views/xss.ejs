@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>XSS</title>
+    </head>
+    <body>
+        <h2>XSS</h2>
+
+        <form action="/xss/submit" method="post" class="form-box">
+            <input type="text" class="text-box" placeholder="Enter name" name="content" autocomplete="off">
+            <button type="submit" class="btn">Submit</button>
+        </form>
+        <br>
+        <ul class="list-box">
+            <%
+            members.forEach(member => { %>
+                <li class="member">
+                    <div class="member-content" id="content">&emsp;<%- member %>&emsp;</div>
+                </li>
+            <% }); %>
+        </ul>
+    </body>
+</html>
